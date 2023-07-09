@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} {%endblock title%} | Chatbot</title>
+    <!--  Links  -->
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body> 
+
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ChatBot</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/index">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cources">courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/">Chatbot</a>
+        </li>
+      </ul>
+      <form method="get" action="/search" class="d-flex" role="search">{% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+        {% if request.user.is_authenticated %}
+        <div class="dropdown">
+          <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome {{request.user}}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+        {% else %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-dark mr-2" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button type="button" class="btn btn-dark mr-2" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
+      </div>
+        {% endif %}
+    </div>
+  </div>
+</nav>
+  <!-- Sign Up Modal-->
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="signupModal">SignUp Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action='/signup' method='post'>{% csrf_token %}
+          <div class="mb-3">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" aria-describedby="email" required>
+            <div id="email" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="pass1" class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Enter your password" id="pass1" name="pass1" required>
+          </div>
+          <div class="mb-3">
+            <label for="pass2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" placeholder="Enter your password again" id="pass2" name="pass2" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--End Sign Up Modal-->
+
+   <!--Log in Modal-->
+   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="loginModal">Login Form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action='/login' method='post'>{% csrf_token %}
+            <div class="mb-3">
+              <label for="loginusername" class="form-label">Username</label>
+              <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="name" aria-describedby="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="pass" class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="password" id="loginpass" name="loginpass" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!--End Log in Modal-->
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+      {% block body %}
+      {% endblock body %}
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+      <footer class="bg-dark text-white pt-5 pb-4 my-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h3 class="text-uppercase mb-4 font-weight-bold text-warning">QUICK LINKS</h3>
+        <p>
+          <a href="/http://gadmin.uohyd.ac.in/" class="text-white" style="text-decoration: none;">UoH Administration</a>
+        </p>
+        <p>
+          <a href="/https://uohyd.ac.in/important-contacts/" class="text-white" style="text-decoration: none;">Important Contacts</a>
+        </p>
+        <p>
+          <a href="/https://www.egov.uohyd.ac.in/login" class="text-white" style="text-decoration: none;">UoH E-Gov Portal</a>
+        </p>
+        <p>
+          <a href="/https://uohyd.ac.in/dean-students-welfare/" class="text-white" style="text-decoration: none;">Deans Student's Walfare</a>
+        </p>
+
+      </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 front-weight-bold text-warning">FOR VISITORS</h5>
+        <p>
+          <a href="/https://uohyd.ac.in/map-directions/" class="text-white" style="text-decoration: none;">Maps & Direction</a>
+        </p>
+        <p>
+          <a href="/https://en.wikipedia.org/wiki/Hyderabad" class="text-white" style="text-decoration: none;">About Hyderabad</a>
+        </p>
+        <p>
+          <a href="/http://gadmin.uohyd.ac.in/all-notices/" class="text-white" style="text-decoration: none;">Tender Notice</a>
+        </p>
+      </div>
+      <div class="col-md-4 col-lg-3 col-xl-3 max-auto mt-3">
+        <h5 class="text-uppercase mb-4 front-weight-bold text-warning">Contact</h5>
+        <P>
+          <i class="fa-solid fa-house"></i>
+          University of Hyderabad-INDIA, IN<br>
+          Prof. CR Rao Road
+        </p>
+        <p><i class="fa-solid fa-envelope"></i>acadinfo@uohyd.ernet.in</p>
+        <p><i class="fa-solid fa-phone"></i>acadinfo@uohyd.ernet.in</p>
+        <p><i class="fa-solid fa-location-dot"></i>https://uohyd.ac.in/</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

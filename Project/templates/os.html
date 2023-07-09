@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title%}Cources{% endblock title%}
+<h1>Cources</h1>
+{% block body%}
+<div class="container text-center">
+    <div class="row justify-content-md-center">
+      <div class="col-4">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{%static 'g2.jpeg'%}" style="height: 200px; width: 500px;" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Prof. RP Lal</h5>
+                  <p class="card-text">Subject Teacher</p>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+            <h3 class="card-title my-4">Operating System</h3>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+  <form class="d-flex">
+      <input class="form-control me-2" type="text" placeholder="Search">
+      <button class="btn btn-primary" type="button">Search</button>
+  </form>
+        
+</div>
+
+<!--<div class="container">
+    <div class="row">
+        <div class="col-4">
+          <div id="list-example" class="list-group">
+            <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+        
+          </div>
+        </div>
+        <div class="col-8">
+          <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+            <h4 id="list-item-1">Item 1</h4>
+            <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+            <h4 id="list-item-2">Item 2</h4>
+            <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+            <h4 id="list-item-3">Item 3</h4>
+            <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
+            <br>
+        
+           
+          </div>
+        </div>
+      </div>
+</div>-->
+{% endblock body%}

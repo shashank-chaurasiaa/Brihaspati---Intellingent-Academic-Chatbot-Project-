@@ -1,0 +1,213 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title%}Search Results{% endblock title%}
+
+{% block body%}
+<div class="container-fluid mt-4 mb-4">
+  <h1>Search Results</h1>
+  
+    <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <h1>
+                Cources Offered by SCIS UoH.
+            </h1>
+          </div>
+          
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h2>Cources</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="{%static 'python.png'%}" class="card-img-top" style="height: 145px;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Python</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary"><a class="btn btn-primary" href="contents.html" role="button">Explore</a></button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+              <img src="{%static 'java.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Java</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="{%static 'os.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Operating System</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="{%static 'c.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">C Programming</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="{%static 'cn.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Computer Network</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="{%static 'c++.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">C++</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+              </div>
+            </div>
+          </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="{%static 'dsa.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Data Structure and Algorithm</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="{%static 'iot.jpeg'%}" class="card-img-top" style="height: 145px;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Internet of Things</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary">Explore</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+</div>
+{% endblock body%}
+
+<!--
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 bg-light">
+        <div class="text-center"><h1>Java Tutorial</h1></div>
+        <div><h6></h6></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="col-9 bg-light">
+        <div><h3>Java Tutorial</h3></div>
+        <p>Our core Java programming tutorial is designed for students and working professionals. Java is an object-oriented, class-based, concurrent, secured and general-purpose computer-programming language. It is a widely used robust technology.</p>
+        <div><h3>What is Java?</h3></div>
+        <p>Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language.
+
+            Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so James Gosling and his team changed the name from Oak to Java.
+            
+            Platform: Any hardware or software environment in which a program runs, is known as a platform. Since Java has a runtime environment (JRE) and API, it is called a platform.</p>
+      
+      <div><h3>Application</h3></div>
+      <p>According to Sun, 3 billion devices run Java. There are many devices where Java is currently used. Some of them are as follows:</p>
+      <p>
+        <ol>
+            <li>
+                Desktop Applications such as acrobat reader, media player, antivirus, etc. 
+            </li>
+            <li>
+                Web Applications such as irctc.co.in, javatpoint.com, etc. 
+            </li>
+            <li>
+                Enterprise Applications such as banking applications. 
+            </li>
+            <li>
+                Mobile 
+            </li>
+            <li>
+                Embedded System 
+            </li>
+            <li>
+                Smart Card 
+            </li>
+            <li>
+                Robotics 
+            </li>
+            <li>
+                Games, etc.
+            </li>
+        </ol>
+      </p>
+      <div><h3>Types of Java Applications</h3></div>
+    <p>There are mainly 4 types of applications that can be created using Java programming:</p>
+    <ol type="1)">
+        <li><strong>Standalone Application</strong></li>
+        <p>Standalone applications are also known as desktop applications or window-based applications. These are traditional software that we need to install on every machine. Examples of standalone application are Media player, antivirus, etc. AWT and Swing are used in Java for creating standalone applications.</p>
+        <li><strong>Web Application</strong></li>
+        <p>An application that runs on the server side and creates a dynamic page is called a web application. Currently, Servlet, JSP, Struts, Spring, Hibernate, JSF, etc. technologies are used for creating web applications in Java.</p>
+        <li><strong>Enterprise Application</strong></li>
+        <p>An application that is distributed in nature, such as banking applications, etc. is called an enterprise application. It has advantages like high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.</p>
+        <li><strong>Mobile Application</strong></li>
+        <p>An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.</p>
+      </ol>
+      <div><h3>Java Platforms / Editions</h3></div>
+    <p>There are 4 platforms or editions of Java:</p>
+    <ol type="1)">
+        <li><strong>Java SE (Java Standard Edition)</strong></li>
+        <p>It is a Java programming platform. It includes Java programming APIs such as java.lang, java.io, java.net, java.util, java.sql, java.math etc. It includes core topics like OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, etc.</p>
+        <li><strong>Java EE (Java Enterprise Edition)</strong></li>
+        <p>It is an enterprise platform that is mainly used to develop web and enterprise applications. It is built on top of the Java SE platform. It includes topics like Servlet, JSP, Web Services, EJB, JPA, etc.</p>
+        <li><strong>Java ME (Java Micro Edition)</strong></li>
+        <p>It is a micro platform that is dedicated to mobile applications.</p>
+        <li><strong>JavaFX</strong></li>
+        <p>It is used to develop rich internet applications. It uses a lightweight user interface API.</p>
+      </ol>
+    </div>
+    </div>
+  </div>    -->
+
